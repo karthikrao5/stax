@@ -1,4 +1,3 @@
-
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
@@ -15,10 +14,6 @@ if (Meteor.isClient) {
       Session.set('counter', Session.get('counter') + 1);
     }
   });
-
-  Template.sample.helpers({
-      name: "nigga"
-  })
 }
 
 if (Meteor.isServer) {
