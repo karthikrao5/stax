@@ -1,136 +1,56 @@
 if (Meteor.isClient) {
+
   // counter starts at 0
-  Session.setDefault('counter', 0);
+    //Get the context of the canvas element we want to select
+    var ctx = document.getElementById("myLineChart").getContext("2d");
+    // var myNewChart = new Chart(ctx).Line(data,null);
+    var data = {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [
+          {
+              label: "My First dataset",
+              fillColor: "rgba(220,220,220,0.2)",
+              strokeColor: "rgba(220,220,220,1)",
+              pointColor: "rgba(220,220,220,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: [65, 59, 80, 81, 56, 55, 40]
+          },
+          {
+              label: "My Second dataset",
+              fillColor: "rgba(151,187,205,0.2)",
+              strokeColor: "rgba(151,187,205,1)",
+              pointColor: "rgba(151,187,205,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(151,187,205,1)",
+              data: [28, 48, 40, 19, 86, 27, 90]
+          }]}
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
+    var lineChart = new Chart(ctx).Line(data, null);
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
 
-  if(Points.find({}).count() === 0){
-	for(i = 0; i < 20; i++)
-		Points.insert({
-			date:moment().startOf('day').subtract('days', Math.floor(Math.random() * 1000)).toDate(),
-			value:Math.floor(Math.random() * 100)+500
-		});
+  // if (Meteor.isServer) {
+  //   Meteor.startup(function () {
+  //   // code to run on server at startup
+  //   });
+  // }
+
+
+  // new Chart(ctx).Line(data, {bezierCurve: false);
+
+  Template.myLineChart.rendered = function() {
+
   }
-
-  Template.lineChart.events({
-  	'click #add':function(){
-  		Points.insert({
-  			date:moment().startOf('day').subtract('days', Math.floor(Math.random() * 1000)).toDate(),
-  			value:Math.floor(Math.random() * 100)+500
-  		});
-  	},
-  	'click #remove':function(){
-  		var toRemove = Random.choice(Points.find().fetch());
-  		Points.remove({_id:toRemove._id});
-  	},
-  	'click #randomize':function(){
-  		//loop through bars
-  		Points.find({}).forEach(function(point){
-  			Points.update({_id:point._id},{$set:{value:Math.floor(Math.random() * 100)+500}});
-  		});
-  	}
-  });
-
-  Template.lineChart.rendered = function(){
-  	//Width and height
-  	var margin = {top: 20, right: 20, bottom: 30, left: 50},
-  		width = 600 - margin.left - margin.right,
-  		height = 400 - margin.top - margin.bottom;
-
-  	var x = d3.time.scale()
-  		.range([0, width]);
-
-  	var y = d3.scale.linear()
-  		.range([height, 0]);
-
-  	var xAxis = d3.svg.axis()
-  		.scale(x)
-  		.orient("bottom");
-
-  	var yAxis = d3.svg.axis()
-  		.scale(y)
-  		.orient("left");
-
-  	var line = d3.svg.line()
-  		.x(function(d) {
-  			return x(d.date);
-  		})
-  		.y(function(d) {
-  			return y(d.value);
-  		});
-
-  	var svg = d3.select("#lineChart")
-  		.attr("width", width + margin.left + margin.right)
-  		.attr("height", height + margin.top + margin.bottom)
-  		.append("g")
-  		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  	svg.append("g")
-  		.attr("class", "x axis")
-  		.attr("transform", "translate(0," + height + ")");
-
-  	svg.append("g")
-  		.attr("class", "y axis")
-  		.append("text")
-  		.attr("transform", "rotate(-90)")
-  		.attr("y", 6)
-  		.attr("dy", ".71em")
-  		.style("text-anchor", "end")
-  		.text("Price ($)");
-
-  	Deps.autorun(function(){
-  		var dataset = Points.find({},{sort:{date:-1}}).fetch();
-
-  		var paths = svg.selectAll("path.line")
-  			.data([dataset]); //todo - odd syntax here - should use a key function, but can't seem to get that working
-
-  		x.domain(d3.extent(dataset, function(d) { return d.date; }));
-  		y.domain(d3.extent(dataset, function(d) { return d.value; }));
-
-  		//Update X axis
-  		svg.select(".x.axis")
-  			.transition()
-  			.duration(1000)
-  			.call(xAxis);
-
-  		//Update Y axis
-  		svg.select(".y.axis")
-  			.transition()
-  			.duration(1000)
-  			.call(yAxis);
-
-  		paths
-  			.enter()
-  			.append("path")
-  			.attr("class", "line")
-  			.attr('d', line);
-
-  		paths
-  			.attr('d', line); //todo - should be a transisition, but removed it due to absence of key
-
-  		paths
-  			.exit()
-  			.remove();
-  	});
-  };
-
-}
+};
 
 
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
+
+    // drawChart();
     // code to run on server at startup
   });
 }
