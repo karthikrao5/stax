@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "chartjs": {}
+    },
+    "packages": {
+      "chartjs": {
+        "git": "https://github.com/donskifarrell/meteor-chartjs.git",
+        "tag": "v0.0.6",
+        "commit": "7999ee282dc6302806c421607ecd9248d160c6e7"
+      }
+    }
+  }
+}

@@ -57,7 +57,7 @@
 					</section>
 				</div>
 
-				
+
 
 				<footer class="major container 75%">
 					<h3>Get shady with science</h3>
@@ -124,10 +124,22 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
+			<script src="Chart.js"></script>
+			<script src="jquery-1.11.3.min.js"></script>
+			{{> hello}}
 	</body>
 
 <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  <h1>Meteor-ChartJs Example</h1>
+  {{> myLineChart}}
+</body>
+
+<template name="myLineChart">
+  <canvas id="myLineChart" width="400" height="400"></canvas>
 </template>
