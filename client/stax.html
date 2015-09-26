@@ -1,64 +1,69 @@
 <head>
-		<title>Welcome to Stax</title>
+		<title>Directive by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="stax.css" />
-		<link rel="stylesheet" href="font-awesome.min.css">
+		<link rel="stylesheet" href="font-awesome.min.css"
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
-	
 
 		<!-- Header -->
 			<div id="header">
 				<span class="logo icon fa-paper-plane-o"></span>
-				<h1>Stax</h1>
-				<p>Helping you get the best bang for your buck.</p>
+				<h1>Hi. This is Directive.</h1>
+				<p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
+				<br />
+				and released for free under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
 			</div>
 
 		<!-- Main -->
-			<div class="box alt container">
-			 	<div class="content">
-					<h2>What is Stax?</h2>
-					<h6>A state of the art online calculator
+			<div id="main">
+
+				<header class="major container 75%">
+					<h2>We conduct experiments that
 					<br />
-					that determines the most finanically
-					<br />	
-					optimal location based on your 
+					may or may not seriously
 					<br />
-					annual income and expenses</h6>
-				
-			</div>
-			</div>
-				
+					break the universe</h2>
+					<!--
+					<p>Tellus erat mauris ipsum fermentum<br />
+					etiam vivamus nunc nibh morbi.</p>
+					-->
+				</header>
+
 				<div class="box alt container">
 					<section class="feature left">
 						<a href="#" class="image icon fa-signal"><img src="images/pic01.jpg" alt="" /></a>
 						<div class="content">
-							<h3>The First Step</h3>
-							<p>Take your base salary and calculate your yearly income after customized tax deductions.</p>
+							<h3>The First Thing</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 						</div>
 					</section>
 					<section class="feature right">
 						<a href="#" class="image icon fa-code"><img src="images/pic02.jpg" alt="" /></a>
 						<div class="content">
-							<h3>The Second Step</h3>
-							<p>Include 401k savings and Roth IRA deductions as part of our calculations</p>
+							<h3>The Second Thing</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 						</div>
 					</section>
 					<section class="feature left">
 						<a href="#" class="image icon fa-mobile"><img src="images/pic03.jpg" alt="" /></a>
 						<div class="content">
-							<h3>The Third Step</h3>
-							<p>Incorporate extraneous expenses such as housing, transportation, food etc to determine the most accurate cost of living based on geographical location.</p>
+							<h3>The Third Thing</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 						</div>
 					</section>
 				</div>
 
-				
-				<div>	
+
+
 				<footer class="major container 75%">
+					<h3>Get shady with science</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
 					<ul class="actions">
-						<li><a href="#" class="button">Get Started</a></li>
+						<li><a href="#" class="button">Join our crew</a></li>
 					</ul>
 				</footer>
 
@@ -69,11 +74,11 @@
 				<div class="container 75%">
 
 					<header class="major last">
-						<h2>What do you think of Stax?</h2>
+						<h2>Questions or comments?</h2>
 					</header>
-				</div>
-				</div>
-					
+
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
+					orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
 
 					<form method="post" action="#">
 						<div class="row">
@@ -97,15 +102,7 @@
 							</div>
 						</div>
 					</form>
-				
-				<div class="container 75%">
 
-					<header class="major last">
-						<h2>Follow us on social media for the latest updates and news</h2>
-					</header>
-
-					</div>
-					
 					<ul class="icons">
 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -115,10 +112,11 @@
 					</ul>
 
 					<ul class="copyright">
-						<li>&copy; Stax. All rights reserved.</li>
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 
-				
+				</div>
+			</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -126,10 +124,22 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
+			<script src="Chart.js"></script>
+			<script src="jquery-1.11.3.min.js"></script>
+			{{> hello}}
 	</body>
 
 <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  <h1>Meteor-ChartJs Example</h1>
+  {{> myLineChart}}
+</body>
+
+<template name="myLineChart">
+  <canvas id="myLineChart" width="400" height="400"></canvas>
 </template>
