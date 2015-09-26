@@ -16,7 +16,7 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.timeline.helpers({
+  Template.sample.helpers({
       name: "nigga"
   })
 }
