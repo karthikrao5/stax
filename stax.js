@@ -1,24 +1,23 @@
-
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
+  Template.info.helpers({
+  
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
+  Template.info.events({
+    "submit form": function(event) {
+      event.preventDefault();
+      console.log("Form submitted");
+      var company = event.target.company.value;
+      var salary = event.target.salary.value;
+      var city = document.getElementById('cities').value;
+      var boolK = document.getElementById('401k').value;
+      if(boolK == No) 
+        var kZero = 0;
+      else
+        var kZero = event.target.matched.value;
+      }
   });
-
-  Template.timeline.helpers({
-      name: "nigga"
-  })
 }
 
 if (Meteor.isServer) {

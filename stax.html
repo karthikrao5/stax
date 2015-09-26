@@ -1,0 +1,37 @@
+<head>
+  <title>Stax</title>
+</head>
+
+<body>
+  <h1>Hello Bitches</h1>
+
+  {{> info}}
+</body>
+
+<template name="info">
+  <form action="javascript:completeAndRedirect();">
+  Company:<br>
+  <input type="text" name="company"><br><br>
+  Location:<br>
+  <input type="radio" name="city" value="Seattle" >Seattle
+  <input type="radio" name="city" value="San Fransisco" >San Fransisco
+  <input type="radio" name="city" value="Chicago" >Chicago
+  <input type="radio" name="city" value="Dallas" >Dallas
+  <input type="radio" name="city" value="New York" >New York
+  <input type="radio" name="city" value="Boston" >Boston<br><br>
+  Salary:<br>
+  <input type="number" name="Salary"><br><br>
+  401k Matching:<br>
+  <input type="radio" name="boolK" value="Yes" >Yes
+  <input type="radio" name="boolK" value="No" > No<br>
+  Percent of Salary Matched<br>
+  <input type="number" name="matched"> <br><br>
+  Are you planning on buying or renting your housing?
+  <input type="radio" name="house" value="Buying">Buying
+  <input type="radio" name="housing" value="Renting" >Renting <br><br>
+  Do you plan on using public transportation?
+  <input type="radio" name="transportation" value="Yes" >Yes
+  <input type="radio" name="transportation" value="No" >No<br><br>
+  <input type="submit" value="Submit!">
+</form>
+</template>
