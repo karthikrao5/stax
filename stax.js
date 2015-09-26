@@ -9,13 +9,17 @@ if (Meteor.isClient) {
       event.preventDefault();
       console.log("Form submitted");
       var company = event.target.company.value;
-      var salary = event.target.salary.value;
-      var city = document.getElementById('cities').value;
-      var boolK = document.getElementById('401k').value;
-      if(boolK == No) 
+      console.log(company); 
+      var city = event.target.city.value;
+      console.log(city);
+      var salary = document.getElementById("sal"); 
+      console.log(salary);
+      var boolK = event.target.boolK.value;
+      if(boolK == "No") 
         var kZero = 0;
       else
         var kZero = event.target.matched.value;
+      console.log(kZero);
       }
   });
 }
