@@ -1,3 +1,4 @@
+
 if (Meteor.isClient) {
   var fedTax = 0.3;
   var calTax = 0.123;
@@ -8,6 +9,7 @@ if (Meteor.isClient) {
   var txTax = 0;
   var maTax = .0515;
 
+  var wealth = [];
   var rent;
   var stateTax;
   var transportationCostMonthly;
@@ -40,6 +42,7 @@ if (Meteor.isClient) {
       stock = event.target.stock.value;
 
       boolK = event.target.boolK.value;
+
       if(boolK == "No") {
         k = 0;
       } else {
@@ -127,6 +130,8 @@ if (Meteor.isClient) {
         y = Math.round(y * 100) / 100;
         stock = stock * 1.07;
         console.log(y + "--------y");
+        wealth[t] = y;
+        console.log(wealth);
       }
     }
 });
