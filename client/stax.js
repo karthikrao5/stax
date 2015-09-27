@@ -3,16 +3,12 @@
 
 if (Meteor.isClient) {
 
-
-  $( document ).ready(function() {
-    //Get the context of the canvas element we want to select
-    var ctx = document.getElementById("myLineChart").getContext("2d");
-    var myLineChart = new Chart(ctx).Line(data,null);
-  });
-
+  var globalWealth = [];
+  var globalT = [];
 
   Template.info.events({
     "submit form": function(event) {
+        // var cityMenu = document.getElementById("citySelect");
         var fedTax = 0.3;
         var calTax = 0.123;
         var washTax = 0;
@@ -21,6 +17,7 @@ if (Meteor.isClient) {
         var gaTax = 0.06;
         var txTax = 0;
         var maTax = .0515;
+        var city;
 
         var wealth = [];
         var rent;
@@ -30,11 +27,11 @@ if (Meteor.isClient) {
         var utilityCostMonthly;
         var healthInsuranceMonthly;
           event.preventDefault();
-          console.log("Form submitted");
+
+          alert("form submittd");
 
           company = event.target.company.value;
           console.log(company);
-
           city = event.target.city.value;
           console.log(city);
 
@@ -47,8 +44,10 @@ if (Meteor.isClient) {
 
           if(boolK == "No") {
             k = 0;
+            alert("selected no to 401k matching");
           } else {
             k = event.target.matched.value;
+            alert("selected yes to 401k matching");
           }
 
           console.log(k);
@@ -76,7 +75,7 @@ if (Meteor.isClient) {
             utilityCostMonthly = 157;
             healthInsuranceMonthly = 228;
 
-          } else if (city == "San Francisco") {
+          } else if (city == "SanFrancisco") {
             stateTax = calTax;
             rent = 2965
             foodCostMonthly = 518; // source: numbeo.com
@@ -133,10 +132,26 @@ if (Meteor.isClient) {
             stock = stock * 1.07;
             console.log(y + "--------y");
             wealth[t] = y;
+            globalWealth[t] = y;
             console.log(wealth);
+            globalT[t] = t;
           }
+          // globalWealth = wealth;
+          console.log(globalWealth);
+          updateGraph();
         }
       });
+
+      function updateGraph() {
+          var ctx = document.getElementById("myLineChart").getContext("2d");
+          var myLineChart = new Chart(ctx).Line(data,null);
+      }
+
+      // $( document ).ready(function() {
+      //   //Get the context of the canvas element we want to select
+      //   var ctx = document.getElementById("myLineChart").getContext("2d");
+      //   var myLineChart = new Chart(ctx).Line(data,null);
+      // });
 
 }
 
@@ -149,19 +164,19 @@ if (Meteor.isServer) {
 var data = {
   labels : ["January","February","March","April","May","June","July"],
   datasets : [
-    {
-      fillColor : "rgba(220,220,220,0.5)",
-      strokeColor : "rgba(220,220,220,1)",
-      pointColor : "rgba(220,220,220,1)",
-      pointStrokeColor : "#fff",
-      data : [65,100,90,81,56,55,40]
-    },
+    // {
+    //   fillColor : "rgba(220,220,220,0.5)",
+    //   strokeColor : "rgba(220,220,220,1)",
+    //   pointColor : "rgba(220,220,220,1)",
+    //   pointStrokeColor : "#fff",
+    //   data : [1,2,3,4,5,6,7,8,9,10]
+    // },
     {
       fillColor : "rgba(151,187,205,0.5)",
       strokeColor : "rgba(151,187,205,1)",
       pointColor : "rgba(151,187,205,1)",
       pointStrokeColor : "#fff",
-      data : [28,48,40,19,96,27,100]
+      data : globalWealth
     }
   ]
 }
