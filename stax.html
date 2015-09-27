@@ -6,6 +6,7 @@
   <h1>Hello Bitches</h1>
 
   {{> info}}
+  {{dataStorage}}
 </body>
 
 <template name="info">
@@ -22,6 +23,8 @@
   <input type="radio" name="city" value="Boston" >Boston<br><br>
   Salary:<br>
   <input type="number" name="sal"> <br><br>
+  Stock Options(in cash value):<br>
+  <input type ="number" name = "stock"><br><br>
   401k Matching:<br>
   <input type="radio" name="boolK" value="Yes" >Yes
   <input type="radio" name="boolK" value="No" > No<br>
@@ -33,11 +36,11 @@
   Do you plan on using public transportation?
   <input type="radio" name="transportation" value="Yes" >Yes
   <input type="radio" name="transportation" value="No" >No<br><br>
-  <input type="submit" value="Submit!">
   Health Care Coverage:<br>
   <input type="radio" name="hi" value="Yes" >Yes
   <input type="radio" name="hi" value="No" > No<br>
   Percent of healthcare covered<br>
   <input type="number" name="health"> <br><br>
+  <input type="submit" value="Submit!">
 </form>
 </template>
