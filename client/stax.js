@@ -5,6 +5,7 @@ if (Meteor.isClient) {
 
   var globalWealth = [];
   var globalT = [];
+  var checkThis = true;
 
   Template.info.events({
     "submit form": function(event) {
@@ -143,8 +144,16 @@ if (Meteor.isClient) {
       });
 
       function updateGraph() {
+        console.log(myLineChart);
+        if (checkThis) {
           var ctx = document.getElementById("myLineChart").getContext("2d");
           var myLineChart = new Chart(ctx).Line(data,null);
+          checkThis = false;
+        } else {
+          console.log("update method called");
+          var myLineChart = new Chart(ctx).Line(data,null);
+        }
+
       }
 
       // $( document ).ready(function() {
