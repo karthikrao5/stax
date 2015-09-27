@@ -2,10 +2,8 @@
 		<title>Directive by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="stax.css" />
-		<link rel="stylesheet" href="font-awesome.min.css"
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="font-awesome.min.css">
 	</head>
 	<body>
 
@@ -57,8 +55,6 @@
 					</section>
 				</div>
 
-
-
 				<footer class="major container 75%">
 					<h3>Get shady with science</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
@@ -74,34 +70,18 @@
 				<div class="container 75%">
 
 					<header class="major last">
-						<h2>Questions or comments?</h2>
+						<h2>How much will</h2>
 					</header>
 
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
 					orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
 
-					<form method="post" action="#">
-						<div class="row">
-							<div class="6u 12u(mobilep)">
-								<input type="text" name="name" placeholder="Name" />
-							</div>
-							<div class="6u 12u(mobilep)">
-								<input type="email" name="email" placeholder="Email" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="12u">
-								<textarea name="message" placeholder="Message" rows="6"></textarea>
-							</div>
-						</div>
-						<div class="row">
-							<div class="12u">
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</div>
-						</div>
-					</form>
+					<div>
+						{{> info}}
+					</div>
+					<div>
+						{{> myLineChart}}
+					</div>
 
 					<ul class="icons">
 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -126,7 +106,6 @@
 			<script src="assets/js/main.js"></script>
 			<script src="Chart.js"></script>
 			<script src="jquery-1.11.3.min.js"></script>
-			{{> hello}}
 	</body>
 
 <template name="hello">
@@ -134,12 +113,47 @@
   <p>You've pressed the button {{counter}} times.</p>
 </template>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
-  <h1>Meteor-ChartJs Example</h1>
-  {{> myLineChart}}
-</body>
-
 <template name="myLineChart">
   <canvas id="myLineChart" width="400" height="400"></canvas>
+</template>
+
+<template name="info">
+	<form action="javascript:completeAndRedirect();">
+		Company:<br>
+			<input type="text" name="company"><br><br>
+		Location:<br>
+
+		<select>
+			<option name="city" value="Seattle">Seattle</option>
+			<option name="city" value="San Francisco">San Francisco</option>
+			<option name="city" value="Chicago">Chicago</option>
+			<option name="city" value="Dallas">Dallas</option>
+			<option name="city" value="New York">New York</option>
+			<option name="city" value="Boston">Boston</option>
+		</select>
+		<br><br>
+		Salary:<br>
+			<input type="number" name="sal"> <br><br>
+		401k Matching:<br>
+		<select>
+			<option name="boolK" value="Yes">Yes</option>
+			<option name="boolK" value="No">No</option>
+		</select>
+		<br>
+		Percent of Salary Matched<br>
+			<input type="number" name="matched"> <br><br>
+		Are you planning on buying or renting your housing?
+		<select>
+			<option name="house" value="Buying">Buying</option>
+			<option name="house" value="Renting">Renting</option>
+		</select>
+		<br><br>
+		Do you plan on using public transportation?
+		<select>
+			<option name="transportation" value="Yes">Yes</option>
+			<option name="transportation" value="No">No</option>
+		</select>
+		<br><br>
+		<input type="submit" value="Submit!">
+	</form>
 </template>
