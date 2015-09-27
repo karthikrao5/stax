@@ -3,26 +3,25 @@ if (Meteor.isClient) {
     //Get the context of the canvas element we want to select
     var ctx = document.getElementById("myLineChart").getContext("2d");
     var myLineChart = new Chart(ctx).Line(data,null);
-
+  });
     Template.info.events({
         "submit form": function(event) {
             event.preventDefault();
             console.log("Form submitted");
-            var company = event.target.company.value;
+            company = event.target.company.value;
             console.log(company);
-            var city = event.target.city.value;
+            city = event.target.city.value;
             console.log(city);
-            var salary = event.target.sal.value;
+            salary = event.target.sal.value;
             console.log(salary);
-            var boolK = event.target.boolK.value;
+            boolK = event.target.boolK.value;
             if(boolK == "No")
-                var kZero = 0;
+                k = 0;
             else
-            var kZero = event.target.matched.value;
-            console.log(kZero);
+                k = event.target.matched.value;
+                console.log("nig");
         }
     });
-  });
 }
 
 if (Meteor.isServer) {
