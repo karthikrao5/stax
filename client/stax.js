@@ -28,7 +28,7 @@ if (Meteor.isClient) {
         var healthInsuranceMonthly;
           event.preventDefault();
 
-          alert("form submittd");
+          // alert("form submittd");
 
           company = event.target.company.value;
           console.log(company);
@@ -44,10 +44,10 @@ if (Meteor.isClient) {
 
           if(boolK == "No") {
             k = 0;
-            alert("selected no to 401k matching");
+            // alert("selected no to 401k matching");
           } else {
             k = event.target.matched.value;
-            alert("selected yes to 401k matching");
+            // alert("selected yes to 401k matching");
           }
 
           console.log(k);
@@ -162,15 +162,8 @@ if (Meteor.isServer) {
 }
 
 var data = {
-  labels : ["January","February","March","April","May","June","July"],
+  labels : ["Year 1","Year 2","Year 3","Year 4","Year 5","Year 6","Year 7","Year 8","Year 9", "Year 10"],
   datasets : [
-    // {
-    //   fillColor : "rgba(220,220,220,0.5)",
-    //   strokeColor : "rgba(220,220,220,1)",
-    //   pointColor : "rgba(220,220,220,1)",
-    //   pointStrokeColor : "#fff",
-    //   data : [1,2,3,4,5,6,7,8,9,10]
-    // },
     {
       fillColor : "rgba(151,187,205,0.5)",
       strokeColor : "rgba(151,187,205,1)",

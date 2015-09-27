@@ -10,21 +10,15 @@
 		<!-- Header -->
 			<div id="header">
 				<span class="logo icon fa-paper-plane-o"></span>
-				<h1>Hi. This is Directive.</h1>
-				<p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
-				<br />
-				and released for free under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+				<h1>Stax</h1>
+				<p>A wealth management tool to plan your future.</p>
 			</div>
-
 		<!-- Main -->
 			<div id="main">
-
 				<header class="major container 75%">
 					<h2>We conduct experiments that
-					<br />
-					may or may not seriously
-					<br />
-					break the universe</h2>
+					<br />may or may not seriously
+					<br />break the universe</h2>
 					<!--
 					<p>Tellus erat mauris ipsum fermentum<br />
 					etiam vivamus nunc nibh morbi.</p>
@@ -82,6 +76,7 @@
 					<div>
 						{{> myLineChart}}
 					</div>
+					<br><br><br><br>
 
 					<ul class="icons">
 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -114,13 +109,13 @@
 </template>
 
 <template name="myLineChart">
-  <canvas id="myLineChart" width="400" height="400"></canvas>
+  <canvas id="myLineChart" width="600" height="600"></canvas>
 </template>
 
 <template name="info">
 	<form id="infoForm" action="javascript:completeAndRedirect();">
 		Company:<br>
-			<input type="text" name="company"><br><br>
+			<input type="text" name="company" value="Airwatch"><br><br>
 		Location:<br>
 			<input type="radio" name="city" value="Seattle">Seattle
 			<input type="radio" name="city" value="SanFrancisco">San Francisco
@@ -128,17 +123,18 @@
 			<input type="radio" name="city" value="Dallas">Dallas
 			<input type="radio" name="city" value="New York">New York
 			<input type="radio" name="city" value="Boston">Boston
+			<input type="radio" name="city" value="Atlanta">Atlanta
 		<br><br>
 		Salary:<br>
-			<input type="number" name="sal"> <br><br>
+			<input type="number" name="sal" value=100000> <br><br>
 		Stock options:<br>
-			<input type="number" name="stock"><br>
+			<input type="number" name="stock" value=10000><br>
 		401k Matching:<br>
 			<input type="radio" name="boolK" value="Yes">Yes
 			<input type="radio" value="No">No>
 		<br>
 		Percent of Salary Matched<br>
-			<input type="number" name="matched"> <br><br>
+			<input type="number" name="matched" value=5> <br><br>
 		Are you planning on buying or renting your housing?
 			<input type="radio" name="house" value="Buying">Buying
 			<input type="radio" name="house" value="Renting">Renting
@@ -152,7 +148,7 @@
 				<input type="radio" name="hi" value="No">No
 				<br>
 	    Percent of healthcare covered<br>
-		    <input type="number" name="health">
+		    <input type="number" name="health" value=80>
 			<br><br>
 			<input type="submit" value="Submit!">
 	</form>
